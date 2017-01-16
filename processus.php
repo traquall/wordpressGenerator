@@ -3,17 +3,17 @@
 include 'class.php';
 
 -- infos base de donnée
-$dbname;
-$dbuser;
-$dbpass;
-$dblang;
+$dbname = $_GET[dbname];
+$dbuser = $_GET[dbuser];
+$dbpass = $_GET[dbpass];
+$dblang = $_GET[dblang];
 
 -- infos wordpress
-$url;
-$title;
-$admin;
-$password;
-$email;
+$url = $_GET[url];
+$title = $_GET[title];
+$admin = $_GET[admin];
+$password = $_GET[pass];
+$email = $_GET[email];
 
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
 $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';

@@ -13,7 +13,7 @@
 <body>
 <div class="container">
   <div class="row">
-<form class="form-horizontal">
+<form class="form-horizontal" action="processus.php" method="get">
 <fieldset>
 
 <!-- Form Name -->
@@ -32,7 +32,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Utilisateur</label>  
   <div class="col-md-4">
-  <input id="textinput" name="tdbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
+  <input id="textinput" name="dbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
     
   </div>
 </div>
@@ -63,7 +63,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Url</label>  
   <div class="col-md-4">
-  <input id="textinput" name="dbpass" type="text" placeholder="url" class="form-control input-md">
+  <input id="textinput" name="url" type="text" placeholder="url" class="form-control input-md">
     
   </div>
 </div>
@@ -91,7 +91,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Mot de passe</label>  
   <div class="col-md-4">
-  <input id="textinput" name="dbpass" type="password" placeholder="Mot de passe" class="form-control input-md">
+  <input id="textinput" name="pass" type="password" placeholder="Mot de passe" class="form-control input-md">
     
   </div>
 </div>
