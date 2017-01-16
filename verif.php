@@ -3,9 +3,12 @@
 $filename = '/usr/local/bin/wp/wp-cli.phar';
 
 if (!file_exists($filename)) {	
-    exec("sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar");
+    exec("curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar");
     exec("chmod +x wp-cli.phar");
-    exec("sudo mv wp-cli.phar /usr/local/bin/wp");
+    exec("mv wp-cli.phar /usr/local/bin/wp");
+    echo "<script>console.log('coucou');</script>";
+}else{
+	echo "<script>console.log('coucou2');</script>";
 }
 
 exec("mkdir /var/www/html/wpcli");
