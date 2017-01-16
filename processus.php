@@ -57,6 +57,8 @@ debug_to_console('1');
         echo "The process is not running.";
     }
 
+    exec("sudo service apache2 restart");
+
     debug_to_console('fin');
 
 ?>
