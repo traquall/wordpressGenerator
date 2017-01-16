@@ -1,7 +1,7 @@
 <?php
 
 require_once('class.php');
-require_once('verif.php');
+
 
 //-- infos base de donnée
 $dbname = $_GET[dbname];
@@ -16,6 +16,8 @@ $admin = $_GET[admin];
 $password = $_GET[pass];
 $email = $_GET[email];
 
+require_once('verif.php');
+
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
 $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
 
@@ -26,6 +28,18 @@ $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_u
     $process1->start();
 
     if ($process1->status()){
+        echo "The process is currently running";
+    }else{
+        echo "The process is not running.";
+    }
+
+    // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
+    $processcreate = new Process('wp db create');
+
+    // Then you can start/stop/ check status of the job.
+    $processcreate->start();
+
+    if ($processcreate->status()){
         echo "The process is currently running";
     }else{
         echo "The process is not running.";
