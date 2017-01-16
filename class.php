@@ -1,36 +1,5 @@
 <?php
 
-
--- infos base de donnée
-$dbname;
-$dbuser;
-$dbpass;
-$dblang;
-
--- infos wordpress
-$url;
-$title;
-$admin;
-$password;
-$email;
-
-
-    // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
-    $process = new Process('ls -al');
-
-    // or if you got the pid, however here only the status() metod will work.
-    $process = new Process();
-    $process.setPid(my_pid);
-
-    // Then you can start/stop/ check status of the job.
-    $process.stop();
-    $process.start();
-    if ($process.status()){
-        echo "The process is currently running";
-    }else{
-        echo "The process is not running.";
-    }
-
 /* An easy way to keep in track of external processes.
 * Ever wanted to execute a process in php, but you still wanted to have somewhat controll of the process ? Well.. This is a way of doing it.
 * @compability: Linux only. (Windows does not work).
