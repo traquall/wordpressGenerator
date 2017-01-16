@@ -2,6 +2,8 @@
 
 require_once('class.php');
 
+var_dump('A');
+
 //-- infos base de donnée
 $dbname = $_GET[dbname];
 $dbuser = $_GET[dbuser];
@@ -21,6 +23,8 @@ $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_u
 
 $filename = '/usr/local/bin/wp/wp-cli.phar';
 
+var_dump('b');
+
 if (!file_exists($filename)) {  
     $p1 = new Process("curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar");
     $p2 = new Process("chmod +x wp-cli.phar");
@@ -34,18 +38,21 @@ if (!file_exists($filename)) {
 $p6 = new Process("mkdir /var/www/html/wpcli");
 $p7 = new Process("cd /var/www/html/wpcli");
 $p8 = new Process("wp core download");
+var_dump('c');
 
     // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
-    $process1 = new Process($processconfigdb);
+    //$process1 = new Process($processconfigdb);
+    exec($processconfigdb);
+    var_dump('d');
 
     // Then you can start/stop/ check status of the job.
-    $process1->start();
-
+    //$process1->start();
+/*
     if ($process1->status()){
         echo "The process is currently running";
     }else{
         echo "The process is not running.";
-    }
+    }*/
 
     // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
     $processcreate = new Process('wp db create');
@@ -58,6 +65,7 @@ $p8 = new Process("wp core download");
     }else{
         echo "The process is not running.";
     }
+    var_dump('e');
 
     // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
     $process2 = new Process($processinstall);
@@ -73,6 +81,6 @@ $p8 = new Process("wp core download");
     }
 
     exec("service apache2 restart");
-
+var_dump('f');
 
 ?>
