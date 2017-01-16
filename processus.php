@@ -1,5 +1,6 @@
 <?php
 
+include 'class.php';
 
 -- infos base de donnée
 $dbname;
@@ -14,70 +15,31 @@ $admin;
 $password;
 $email;
 
+$processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
+$processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
 
     // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
-    $process = new Process('ls -al');
-
-    // or if you got the pid, however here only the status() metod will work.
-    $process = new Process();
-    $process.setPid(my_pid);
+    $process1 = new Process($processconfigdb);
 
     // Then you can start/stop/ check status of the job.
-    $process.stop();
-    $process.start();
-    if ($process.status()){
+    $process1.start();
+
+    if ($process1.status()){
         echo "The process is currently running";
     }else{
         echo "The process is not running.";
     }
 
-/* An easy way to keep in track of external processes.
-* Ever wanted to execute a process in php, but you still wanted to have somewhat controll of the process ? Well.. This is a way of doing it.
-* @compability: Linux only. (Windows does not work).
-* @author: Peec
-*/
-class Process{
-    private $pid;
-    private $command;
+    // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
+    $process2 = new Process($processinstall);
 
-    public function __construct($cl=false){
-        if ($cl != false){
-            $this->command = $cl;
-            $this->runCom();
-        }
-    }
-    private function runCom(){
-        $command = 'nohup '.$this->command.' > /dev/null 2>&1 & echo $!';
-        exec($command ,$op);
-        $this->pid = (int)$op[0];
-    }
+    // Then you can start/stop/ check status of the job.
+    $process2.start();
 
-    public function setPid($pid){
-        $this->pid = $pid;
+    if ($process2.status()){
+        echo "The process is currently running";
+    }else{
+        echo "The process is not running.";
     }
-
-    public function getPid(){
-        return $this->pid;
-    }
-
-    public function status(){
-        $command = 'ps -p '.$this->pid;
-        exec($command,$op);
-        if (!isset($op[1]))return false;
-        else return true;
-    }
-
-    public function start(){
-        if ($this->command != '')$this->runCom();
-        else return true;
-    }
-
-    public function stop(){
-        $command = 'kill '.$this->pid;
-        exec($command);
-        if ($this->status() == false)return true;
-        else return false;
-    }
-}
 
 ?>
