@@ -1,7 +1,7 @@
 <?php
 
 require_once('class.php');
-
+require_once('verif.php');
 
 //-- infos base de donnée
 $dbname = $_GET[dbname];
