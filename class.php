@@ -47,6 +47,15 @@ class Process{
         if ($this->status() == false)return true;
         else return false;
     }
+
+    public function debug_to_console( $data ) {
+        if ( is_array( $data ) )
+            $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+        else
+            $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+        echo $output;
+    }
 }
 
 ?>
