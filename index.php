@@ -3,7 +3,7 @@
 <head>
 <title>form wORDPRESS</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+<meta charset="UTF-8">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -21,64 +21,85 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">E-mail</label>  
+  <label class="col-md-4 control-label" for="textinput">Nom de la base</label>  
   <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="E-mail" class="form-control input-md">
+  <input id="textinput" name="dbname" type="text" placeholder="Nom de la base" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Name</label>  
+  <label class="col-md-4 control-label" for="textinput">Utilisateur</label>  
   <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="Name" class="form-control input-md">
+  <input id="textinput" name="tdbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Sname</label>  
+  <label class="col-md-4 control-label" for="textinput">Mot de passe de base de donnés</label>  
   <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="Sname" class="form-control input-md">
+  <input id="textinput" name="dbpass" type="password" placeholder="Mot de passe de base de donnés" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="year">Select Year</label>
+  <label class="col-md-4 control-label" for="year">Langue</label>
   <div class="col-md-4">
-    <select id="year" name="year" class="form-control">
-      <option value="1">1</option>
+    <select id="year" name="dblang" class="form-control">
+      <option value="fr-FR">Fançais</option>
+      <option value="en-EN">English</option>
     </select>
   </div>
 </div>
 
-<!-- Password input-->
+<br/>
+<br/>
+<br/>
 <div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Renter Password </label>
+  <label class="col-md-4 control-label" for="textinput">Url</label>  
   <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md">
+  <input id="textinput" name="dbpass" type="text" placeholder="url" class="form-control input-md">
+    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Title</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="title" type="text" placeholder="Title" class="form-control input-md">
+    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Admin</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="admin" type="text" placeholder="admin " class="form-control input-md">
+    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Email</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="email" type="text" placeholder="Email" class="form-control input-md">
+    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Mot de passe</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="dbpass" type="password" placeholder="Mot de passe" class="form-control input-md">
     
   </div>
 </div>
 
-<!-- Password input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Password</label>
-  <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="button1id">Select to register</label>
+  <label class="col-md-4 control-label" for="button1id"></label>
   <div class="col-md-8">
-    <button id="button1id" name="button1id" class="btn btn-success">Register</button>
+    <button id="button1id" name="button1id" class="btn btn-success">Crée</button>
      
   </div>
 </div>
