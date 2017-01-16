@@ -12,4 +12,4 @@ exec("mkdir /var/www/html/wpcli");
 exec("cd /var/www/html/wpcli");
 exec("wp core download");
 
-header ('location : processus.php');
+header('location : processus.php');

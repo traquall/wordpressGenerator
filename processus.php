@@ -1,14 +1,15 @@
 <?php
 
-include 'class.php';
+require_once('class.php');
 
--- infos base de donnée
+
+//-- infos base de donnée
 $dbname = $_GET[dbname];
 $dbuser = $_GET[dbuser];
 $dbpass = $_GET[dbpass];
 $dblang = $_GET[dblang];
 
--- infos wordpress
+//-- infos wordpress
 $url = $_GET[url];
 $title = $_GET[title];
 $admin = $_GET[admin];
@@ -22,9 +23,9 @@ $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_u
     $process1 = new Process($processconfigdb);
 
     // Then you can start/stop/ check status of the job.
-    $process1.start();
+    $process1->start();
 
-    if ($process1.status()){
+    if ($process1->status()){
         echo "The process is currently running";
     }else{
         echo "The process is not running.";
@@ -34,9 +35,9 @@ $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_u
     $process2 = new Process($processinstall);
 
     // Then you can start/stop/ check status of the job.
-    $process2.start();
+    $process2->start();
 
-    if ($process2.status()){
+    if ($process2->status()){
         echo "The process is currently running";
     }else{
         echo "The process is not running.";
