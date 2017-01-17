@@ -1,21 +1,19 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>form wordpress</title>
+<title>form wORDPRESS</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <meta charset="UTF-8">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
   <div class="row">
-
-<form class="form-horizontal" action="processus.php" method="get">
-
+<form class="form-horizontal" enctype="multipart/form-data" id="form1" name="Verif" action="index.php" onsubmit="function checkIP(IP)">
 <fieldset>
 
 <!-- Form Name -->
@@ -34,7 +32,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Utilisateur</label>  
   <div class="col-md-4">
-  <input id="textinput" name="dbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
+  <input id="textinput" name="tdbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
     
   </div>
 </div>
@@ -65,7 +63,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Url</label>  
   <div class="col-md-4">
-  <input id="textinput" name="url" type="text" placeholder="url" class="form-control input-md">
+  <input type="number" name="url" id="url" placeholder="url" maxlength="15" class="form-control input-md">
     
   </div>
 </div>
@@ -93,11 +91,17 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Mot de passe</label>  
   <div class="col-md-4">
-  <input id="textinput" name="pass" type="password" placeholder="Mot de passe" class="form-control input-md">
+  <input id="textinput" name="dbpass" type="password" placeholder="Mot de passe" class="form-control input-md">
     
   </div>
 </div>
-
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Dossier</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="dossier" type="file" placeholder="Dossier" class="form-control input-md">
+    
+  </div>
+</div>
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>
   <div class="col-md-8">
@@ -113,22 +117,40 @@
 </div>
 
 <script type="text/javascript">
-console.log("dfgerg");
-function ValidateIPaddress(form1)
- {
- var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
- if(form1.value.match(ipformat))
- {
- document.form1.url.focus();
- return true;
- }
- else
- {
- alert("You have entered an invalid IP address!");
- document.form1.url.focus();
-return false;
- }
- }
-</script>
+/*var dd = document.Verif.url.value;
+alert(dd);
+
+function checkIP(IP) {
+  v = eval("/\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]2[0-4][0-9]|[01]?[0-9][0-9]?)\b/g.exec(IP) == null");
+  if (v) 
+    alert("IP '" + IP + "' non valide");
+  else 
+    alert("IP valide :)");
+}
+
+checkIP(dd);*/  
+ </script>
+
 </body>
 </html>
+<?php
+// Dans les versions de PHP antiéreures à 4.1.0, la variable $HTTP_POST_FILES
+// doit être utilisée à la place de la variable $_FILES.
+//die("dhterthrt".$_GET['dossier']);
+
+
+function upload($term) {
+$UPLOAD_DIR = '/var/www/html/';
+        $dest = $UPLOAD_DIR . $_FILES[$term]['name'];
+        move_uploaded_file($_FILES[$term]['tmp_name'], $dest);
+        return $dest;
+    }
+
+$p=upload($_GET["dossier"]);
+session_start();
+$do=$p.$_GET["dossier"]."/";
+$_session["dossier"]=$do;
+
+    
+              
+?>
