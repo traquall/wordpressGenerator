@@ -21,7 +21,14 @@ $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --d
 $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
 
 if (is_dir($dossier)) {
-    
+    $procdoss = new Process("cd ".$dossier);
+    $procdoss->start();
+}
+else {
+    $procdoss1 = new Process("mkdir ".$dossier);
+    $procdoss1->start();
+    $procdoss2 = new Process("cd ".$dossier);
+    $procdoss2->start();
 }
 
 $filename = '/usr/local/bin/wp/wp-cli.phar';
@@ -34,7 +41,7 @@ if (!file_exists($filename)) {
     $p2->start();
     $p3 = new Process("mv wp-cli.phar /usr/local/bin/wp/wp-cli.phar");
     $p3->start();
-    $p3->debug_to_console('file didnt existe');
+    $p3->debug_to_console("file didn't exist");
 }else{
     $p0 = new Process();
     $p0->debug_to_console("file already exist");
