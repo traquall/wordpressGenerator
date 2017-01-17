@@ -24,8 +24,11 @@ $filename = '/usr/local/bin/wp/wp-cli.phar';
 
 if (!file_exists($filename)) {  
     $p1 = new Process("curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar");
+    $p1->start();
     $p2 = new Process("chmod +x wp-cli.phar");
+    $p2->start();
     $p3 = new Process("mv wp-cli.phar /usr/local/bin/wp/wp-cli.phar");
+    $p3->start();
     $p3->debug_to_console('file didnt existe');
 }else{
     $p0 = new Process();
@@ -33,8 +36,11 @@ if (!file_exists($filename)) {
 }
 
 $p6 = new Process("mkdir /var/www/html/wpcli");
+$p6->start();
 $p7 = new Process("cd /var/www/html/wpcli");
+$p7->start();
 $p8 = new Process("wp core download");
+$p8->start();
 
     // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
     $process1 = new Process($processconfigdb);

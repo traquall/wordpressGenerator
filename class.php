@@ -12,7 +12,6 @@ class Process{
     public function __construct($cl=false){
         if ($cl != false){
             $this->command = $cl;
-            $this->runCom();
         }
     }
     private function runCom(){
