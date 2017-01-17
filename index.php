@@ -133,24 +133,3 @@ checkIP(dd);*/
 
 </body>
 </html>
-<?php
-// Dans les versions de PHP antiéreures à 4.1.0, la variable $HTTP_POST_FILES
-// doit être utilisée à la place de la variable $_FILES.
-// die("dhterthrt".$_GET['dossier']);
-
-
-function upload($term) {
-$UPLOAD_DIR = '/var/www/html/';
-        $dest = $UPLOAD_DIR . $_FILES[$term]['name'];
-        move_uploaded_file($_FILES[$term]['tmp_name'], $dest);
-        return $dest;
-    }
-
-$p=upload($_GET["dossier"]);
-
-$do=$p.$_GET["dossier"]."/";
-$_session["dossier"]=$do;
-
-    
-              
-?>
