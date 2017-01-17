@@ -62,23 +62,6 @@ $email = $_GET[email];
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
 $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
 
-<<<<<<< HEAD
-if (is_dir($dossier)) {
-    $procdoss = new Process("cd ".$dossier);
-    $procdoss->start();
-}
-else {
-    $procdoss1 = new Process("mkdir ".$dossier);
-    $procdoss1->start();
-    $procdoss2 = new Process("cd ".$dossier);
-    $procdoss2->start();
-}
-=======
-/*if (is_dir($dossier)) {
-    
-}*/
->>>>>>> d2c0bb5c53587598ba3bcb20494d30959985e861
-
 $filename = '/usr/local/bin/wp/wp-cli.phar';
 
 
