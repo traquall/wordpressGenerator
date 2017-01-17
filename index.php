@@ -13,7 +13,7 @@
 <body>
 <div class="container">
   <div class="row">
-<form class="form-horizontal" enctype="multipart/form-data" id="form1" name="Verif" action="processus.php" onsubmit="function checkIP(IP)">
+<form class="form-horizontal" enctype="multipart/form-data" id="form1" name="Verif" action="processus.php" method="get">
 <fieldset>
 
 <!-- Form Name -->

@@ -6,41 +6,41 @@ $pTest = new Process();
 
 //-- infos base de donnée
 //vérification des champs du formulaire
-if($_GET[dbname] != '')
+if(isset($_GET[dbname]))
     $dbname = $_GET[dbname];
 else
     $pTest->debug_to_console('dbName');
-if($_GET[dbuser] != '')
+if(isset($_GET[dbuser]))
     $dbuser = $_GET[dbuser];
 else
     $pTest->debug_to_console('dbuser');
-if($_GET[dbpass] != '')
+if(isset($_GET[dbpass]))
     $dbpass = $_GET[dbpass];
 else
     $pTest->debug_to_console('dbpass');
-if($_GET[dblang] != '')
+if(isset($_GET[dblang]))
     $dblang = $_GET[dblang];
 else
     $pTest->debug_to_console('dblang');
 
 //-- infos wordpress
-if($_GET[url] != '')
+if(isset($_GET[url]))
     $url = $_GET[url];
 else
     $pTest->debug_to_console('');
-if($_GET[title] != '')
+if(isset($_GET[title]))
     $title = $_GET[title];
 else
     $pTest->debug_to_console('');
-if($_GET[admin] != '')
+if(isset($_GET[admin]))
     $admin = $_GET[admin];
 else
     $pTest->debug_to_console('');
-if($_GET[pass] != '')
+if(isset($_GET[pass]))
     $password = $_GET[pass];
 else
     $pTest->debug_to_console('');
-if($_GET[email] != '')
+if(isset($_GET[email]))
     $email = $_GET[email];
 else
     $pTest->debug_to_console('');
