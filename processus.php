@@ -1,83 +1,86 @@
 <?php
 
+require_once('class.php');
 
--- infos base de donnée
-$dbname;
-$dbuser;
-$dbpass;
-$dblang;
+var_dump('A');
 
--- infos wordpress
-$url;
-$title;
-$admin;
-$password;
-$email;
+//-- infos base de donnée
+$dbname = $_GET[dbname];
+$dbuser = $_GET[dbuser];
+$dbpass = $_GET[dbpass];
+$dblang = $_GET[dblang];
 
+//-- infos wordpress
+$url = $_GET[url];
+$title = $_GET[title];
+$admin = $_GET[admin];
+$password = $_GET[pass];
+$email = $_GET[email];
+
+
+$processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
+$processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
+
+$filename = '/usr/local/bin/wp/wp-cli.phar';
+
+var_dump('b');
+
+if (!file_exists($filename)) {  
+    $p1 = new Process("curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar");
+    $p2 = new Process("chmod +x wp-cli.phar");
+    $p3 = new Process("mv wp-cli.phar /usr/local/bin/wp");
+    $p3->debug_to_console('file didnt existe');
+}else{
+    $p0 = new Process();
+    $p0->debug_to_console("file already exist");
+}
+
+$p6 = new Process("mkdir /var/www/html/wpcli");
+$p7 = new Process("cd /var/www/html/wpcli");
+$p8 = new Process("wp core download");
+var_dump('c');
 
     // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
-    $process = new Process('ls -al');
-
-    // or if you got the pid, however here only the status() metod will work.
-    $process = new Process();
-    $process.setPid(my_pid);
+    //$process1 = new Process($processconfigdb);
+    exec($processconfigdb);
+    var_dump('d');
 
     // Then you can start/stop/ check status of the job.
-    $process.stop();
-    $process.start();
-    if ($process.status()){
+    //$process1->start();
+/*
+    if ($process1->status()){
+        echo "The process is currently running";
+    }else{
+        echo "The process is not running.";
+    }*/
+
+    // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
+    $processcreate = new Process('wp db create');
+
+    // Then you can start/stop/ check status of the job.
+    $processcreate->start();
+
+    if ($processcreate->status()){
+        echo "The process is currently running";
+    }else{
+        echo "The process is not running.";
+    }
+    var_dump('e');
+
+    // You may use status(), start(), and stop(). notice that start() method gets called automatically one time.
+    $process2 = new Process($processinstall);
+
+    // Then you can start/stop/ check status of the job.
+    $process2->start();
+
+
+    if ($process2->status()){
         echo "The process is currently running";
     }else{
         echo "The process is not running.";
     }
 
-/* An easy way to keep in track of external processes.
-* Ever wanted to execute a process in php, but you still wanted to have somewhat controll of the process ? Well.. This is a way of doing it.
-* @compability: Linux only. (Windows does not work).
-* @author: Peec
-*/
-class Process{
-    private $pid;
-    private $command;
-
-    public function __construct($cl=false){
-        if ($cl != false){
-            $this->command = $cl;
-            $this->runCom();
-        }
-    }
-    private function runCom(){
-        $command = 'nohup '.$this->command.' > /dev/null 2>&1 & echo $!';
-        exec($command ,$op);
-        $this->pid = (int)$op[0];
-    }
-
-    public function setPid($pid){
-        $this->pid = $pid;
-    }
-
-    public function getPid(){
-        return $this->pid;
-    }
-
-    public function status(){
-        $command = 'ps -p '.$this->pid;
-        exec($command,$op);
-        if (!isset($op[1]))return false;
-        else return true;
-    }
-
-    public function start(){
-        if ($this->command != '')$this->runCom();
-        else return true;
-    }
-
-    public function stop(){
-        $command = 'kill '.$this->pid;
-        exec($command);
-        if ($this->status() == false)return true;
-        else return false;
-    }
-}
+    exec("service apache2 restart");
+var_dump('f');
 
 ?>

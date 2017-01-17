@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>form wORDPRESS</title>
+<title>form wordpress</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <meta charset="UTF-8">
 <!-- Optional theme -->
@@ -13,7 +13,11 @@
 <body>
 <div class="container">
   <div class="row">
+<<<<<<< HEAD
 <form class="form-horizontal" name="form1" onsubmit="ValidateIPaddress(inputText)">
+=======
+<form class="form-horizontal" action="processus.php" method="get">
+>>>>>>> c8c49d9eb502ff6b42e01bb794139dc647140b2e
 <fieldset>
 
 <!-- Form Name -->
@@ -32,7 +36,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Utilisateur</label>  
   <div class="col-md-4">
-  <input id="textinput" name="tdbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
+  <input id="textinput" name="dbuser" type="text" placeholder="Utilisateur" class="form-control input-md">
     
   </div>
 </div>
@@ -63,7 +67,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Url</label>  
   <div class="col-md-4">
-  <input id="textinput" name="dbpass" type="text" placeholder="url" class="form-control input-md">
+  <input id="textinput" name="url" type="text" placeholder="url" class="form-control input-md">
     
   </div>
 </div>
@@ -91,7 +95,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Mot de passe</label>  
   <div class="col-md-4">
-  <input id="textinput" name="dbpass" type="password" placeholder="Mot de passe" class="form-control input-md">
+  <input id="textinput" name="pass" type="password" placeholder="Mot de passe" class="form-control input-md">
     
   </div>
 </div>
