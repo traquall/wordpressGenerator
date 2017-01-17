@@ -13,7 +13,7 @@
 <body>
 <div class="container">
   <div class="row">
-<form class="form-horizontal">
+<form class="form-horizontal" name="form1" onsubmit="ValidateIPaddress(inputText)">
 <fieldset>
 
 <!-- Form Name -->
@@ -110,6 +110,23 @@
 </div>
 </div>
 
-
+<script type="text/javascript">
+console.log("dfgerg");
+function ValidateIPaddress(form1)
+ {
+ var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+ if(form1.value.match(ipformat))
+ {
+ document.form1.url.focus();
+ return true;
+ }
+ else
+ {
+ alert("You have entered an invalid IP address!");
+ document.form1.url.focus();
+return false;
+ }
+ }
+</script>
 </body>
 </html>
