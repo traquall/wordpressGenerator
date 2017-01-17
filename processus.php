@@ -44,19 +44,6 @@ if(isset($_GET['email']))
     $email = $_GET['email'];
 else
     $pTest->debug_to_console('');
-// infos base de donnée
-$dbname = $_GET['dbname'];
-$dbuser = $_GET['dbuser'];
-$dbpass = $_GET['dbpass'];
-$dblang = $_GET['dblang'];
-
-// infos wordpress
-$url = $_GET['url'];
-$title = $_GET['title'];
-$admin = $_GET['admin'];
-$password = $_GET['pass'];
-$email = $_GET['email'];
-//$dossier = $_GET[dossier];
 
 
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
@@ -82,7 +69,6 @@ $p6 = new Process("mkdir /var/www/html/wpcli");
 $p6->start();
 $p7 = new Process("cd /var/www/html/wpcli");
 $p7->start();
-die(new Process("cd /var/www/html/wpcli"));
 $p8 = new Process("wp core download");
 $p8->start();
 
