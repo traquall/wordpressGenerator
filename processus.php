@@ -2,18 +2,48 @@
 
 require_once('class.php');
 
+$pTest = new Process();
+
 //-- infos base de donnée
-$dbname = $_GET[dbname];
-$dbuser = $_GET[dbuser];
-$dbpass = $_GET[dbpass];
-$dblang = $_GET[dblang];
+//vérification des champs du formulaire
+if($_GET[dbname] != '')
+    $dbname = $_GET[dbname];
+else
+    $pTest->debug_to_console('dbName');
+if($_GET[dbuser] != '')
+    $dbuser = $_GET[dbuser];
+else
+    $pTest->debug_to_console('dbuser');
+if($_GET[dbpass] != '')
+    $dbpass = $_GET[dbpass];
+else
+    $pTest->debug_to_console('dbpass');
+if($_GET[dblang] != '')
+    $dblang = $_GET[dblang];
+else
+    $pTest->debug_to_console('dblang');
 
 //-- infos wordpress
-$url = $_GET[url];
-$title = $_GET[title];
-$admin = $_GET[admin];
-$password = $_GET[pass];
-$email = $_GET[email];
+if($_GET[url] != '')
+    $url = $_GET[url];
+else
+    $pTest->debug_to_console('');
+if($_GET[title] != '')
+    $title = $_GET[title];
+else
+    $pTest->debug_to_console('');
+if($_GET[admin] != '')
+    $admin = $_GET[admin];
+else
+    $pTest->debug_to_console('');
+if($_GET[pass] != '')
+    $password = $_GET[pass];
+else
+    $pTest->debug_to_console('');
+if($_GET[email] != '')
+    $email = $_GET[email];
+else
+    $pTest->debug_to_console('');
 
 
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
