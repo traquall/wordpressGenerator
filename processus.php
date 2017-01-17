@@ -2,22 +2,27 @@
 
 require_once('class.php');
 
-//-- infos base de donnée
+// infos base de donnée
 $dbname = $_GET[dbname];
 $dbuser = $_GET[dbuser];
 $dbpass = $_GET[dbpass];
 $dblang = $_GET[dblang];
 
-//-- infos wordpress
+// infos wordpress
 $url = $_GET[url];
 $title = $_GET[title];
 $admin = $_GET[admin];
 $password = $_GET[pass];
 $email = $_GET[email];
+$dossier = $_GET[dossier];
 
 
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
 $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
+
+if (is_dir($dossier)) {
+    
+}
 
 $filename = '/usr/local/bin/wp/wp-cli.phar';
 
