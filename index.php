@@ -13,7 +13,11 @@
 <body>
 <div class="container">
   <div class="row">
+<<<<<<< HEAD
+<form class="form-horizontal" name="form1" onsubmit="ValidateIPaddress(inputText)">
+=======
 <form class="form-horizontal" action="processus.php" method="get">
+>>>>>>> c8c49d9eb502ff6b42e01bb794139dc647140b2e
 <fieldset>
 
 <!-- Form Name -->
@@ -110,6 +114,23 @@
 </div>
 </div>
 
-
+<script type="text/javascript">
+console.log("dfgerg");
+function ValidateIPaddress(form1)
+ {
+ var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+ if(form1.value.match(ipformat))
+ {
+ document.form1.url.focus();
+ return true;
+ }
+ else
+ {
+ alert("You have entered an invalid IP address!");
+ document.form1.url.focus();
+return false;
+ }
+ }
+</script>
 </body>
 </html>
