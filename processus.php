@@ -67,8 +67,8 @@ if (!file_exists($filename)) {
 
 $p6 = new Process("mkdir /var/www/html/wpcli");
 $p6->start();
-$p7 = new Process("cd /var/www/html/wpcli");
-$p7->start();
+$test = chdir('/var/www/html/wpcli');
+$pTest->debug_to_console($test);
 $p8 = new Process("wp core download");
 $p8->start();
 
