@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +63,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Url</label>  
   <div class="col-md-4">
-  <input type="number" name="url" id="url" placeholder="url" maxlength="15" class="form-control input-md">
+  <input type="text" name="url" id="url" placeholder="url" maxlength="15" class="form-control input-md">
     
   </div>
 </div>
@@ -136,7 +136,7 @@ checkIP(dd);*/
 <?php
 // Dans les versions de PHP antiéreures à 4.1.0, la variable $HTTP_POST_FILES
 // doit être utilisée à la place de la variable $_FILES.
-//die("dhterthrt".$_GET['dossier']);
+// die("dhterthrt".$_GET['dossier']);
 
 
 function upload($term) {
@@ -147,7 +147,7 @@ $UPLOAD_DIR = '/var/www/html/';
     }
 
 $p=upload($_GET["dossier"]);
-session_start();
+
 $do=$p.$_GET["dossier"]."/";
 $_session["dossier"]=$do;
 

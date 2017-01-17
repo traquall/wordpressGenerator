@@ -2,7 +2,6 @@
 
 require_once('class.php');
 
-<<<<<<< HEAD
 $pTest = new Process();
 
 //-- infos base de donnée
@@ -45,7 +44,6 @@ if($_GET[email] != '')
     $email = $_GET[email];
 else
     $pTest->debug_to_console('');
-=======
 // infos base de donnée
 $dbname = $_GET[dbname];
 $dbuser = $_GET[dbuser];
@@ -58,16 +56,15 @@ $title = $_GET[title];
 $admin = $_GET[admin];
 $password = $_GET[pass];
 $email = $_GET[email];
-$dossier = $_GET[dossier];
->>>>>>> 3985eab3a2b38c9ad054cca1044459659b412eac
+//$dossier = $_GET[dossier];
 
 
 $processconfigdb = 'wp core config --dbname='.$dbname.' --dbuser='.$dbuser.' --dbpass='.$dbpass.' --locale='.$dblang;
 $processinstall = 'wp core install --url='.$url.' --title="'.$title.'" --admin_user='.$admin.' --admin_password='.$password.' --admin_email='.$email.' --skip-email';
 
-if (is_dir($dossier)) {
+/*if (is_dir($dossier)) {
     
-}
+}*/
 
 $filename = '/usr/local/bin/wp/wp-cli.phar';
 
@@ -89,6 +86,7 @@ $p6 = new Process("mkdir /var/www/html/wpcli");
 $p6->start();
 $p7 = new Process("cd /var/www/html/wpcli");
 $p7->start();
+die(new Process("cd /var/www/html/wpcli"));
 $p8 = new Process("wp core download");
 $p8->start();
 
@@ -129,6 +127,6 @@ $p8->start();
         echo "The process is not running.";
     }
 
-    exec("service apache2 restart");
+    exec("service apache2 reload");
 
 ?>
