@@ -13,11 +13,9 @@
 <body>
 <div class="container">
   <div class="row">
-<<<<<<< HEAD
-<form class="form-horizontal" name="form1" onsubmit="ValidateIPaddress(inputText)">
-=======
+
 <form class="form-horizontal" action="processus.php" method="get">
->>>>>>> c8c49d9eb502ff6b42e01bb794139dc647140b2e
+
 <fieldset>
 
 <!-- Form Name -->
