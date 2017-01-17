@@ -59,7 +59,7 @@ if (!file_exists($filename)) {
     $p2->start();
     $p3 = new Process("mv wp-cli.phar /usr/local/bin/wp/wp-cli.phar");
     $p3->start();
-    $p3->debug_to_console("file didn't exist");
+    $p3->debug_to_console("file didn t exist");
 }else{
     $p0 = new Process();
     $p0->debug_to_console("file already exist");
